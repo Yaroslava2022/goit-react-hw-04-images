@@ -44,11 +44,7 @@ export default function App() {
     setQuery(searchData);
     setImages([]);
     setPage(1);
-    // this.setState({
-    //   images: [],
-    //   page: 1,
-    //   query: searchData.query,
-    // });
+   
   };
 
  
@@ -56,24 +52,10 @@ export default function App() {
     if (query === "") {
       return;
     }
-   fetchImgOnQuery();
-  }, [query]);
+      fetchImgOnQuery();
+  });
 
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   const prevQuery = prevState.query;
-  //   const newQuery = this.state.query;
-  //   // const queryPage = this.state.page;
-
-  //   if (prevQuery !== newQuery) {
-  //     // this.setState({
-  //     //   images: [],
-  //     // });
-  //     this.fetchImgOnQuery();
-  //   }
-  // }
-
-  
   function fetchImgOnQuery() {
     // const { query, page } = this.state;
     const { fetchImages } = api;
