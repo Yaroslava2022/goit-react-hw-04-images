@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import css from './Modal.module.css';
-
+import PropTypes from 'prop-types';
 
 export default function Modal({ largeImageURL, onClose, tags }) {
 
@@ -42,3 +42,9 @@ export default function Modal({ largeImageURL, onClose, tags }) {
       </div>)
   
 }
+
+Modal.propTypes = {
+  largeImageURL: PropTypes.string.isRequired,
+  tags: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+};
