@@ -52,8 +52,7 @@ export default function App() {
     if (query === "") {
       return;
     }
-  fetchImgOnQuery()
-   // eslint-disable-next-line
+   fetchImgOnQuery();
   }, [query]);
 
 
