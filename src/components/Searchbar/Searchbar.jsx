@@ -1,32 +1,28 @@
-import { Component } from 'react'
+import { useState } from 'react'
 import Notiflix from 'notiflix';
 import css from './Searchbar.module.css';
 
-class Searchbar extends Component {
-	state = { query: '',}
-
-	onChangeHandler = e => {
-        console.log(e.target.value);
-        this.setState({
-          query: e.target.value,
-        });
+export default function Searchbar({ onSubmit }){
+	
+  const [query, setQuery] = useState("");
+	const onChangeHandler = (e) => {
+        setQuery(e.target.value);
       };
-      onFormSubmitHandler = e => {
+
+      const onFormSubmitHandler = (e) => {
         e.preventDefault();
-        if (this.state.query.trim() === '') {
+        if (query.trim() === "") {
             Notiflix.Notify.failure('Enter your query');
           return;
         }
-        this.props.onSubmit(this.state);
-        this.setState({
-          query: '',
-        });
+       onSubmit(query);
+       setQuery("");
       };
     
-      render() {
+     
         return (
           <header className={css.searchBar}>
-            <form className={css.searchForm} onSubmit={this.onFormSubmitHandler}>
+            <form className={css.searchForm} onSubmit={onFormSubmitHandler}>
               <button type="submit" className={css.searchFormButton}>
                 <span className={css.searchFormButtonLabel}>Search</span>
               </button>
@@ -34,16 +30,14 @@ class Searchbar extends Component {
               <input
                 className={css.searchFormInput}
                 type="text"
-                onChange={this.onChangeHandler}
+                onChange={onChangeHandler}
                 autoComplete="off"
                 autoFocus
                 placeholder="Search images and photos"
-                value={this.state.query}
+                value={query}
               />
             </form>
           </header>
         );
       }
-    }
-
-export default Searchbar
+  
