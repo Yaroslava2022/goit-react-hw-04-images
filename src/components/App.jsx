@@ -56,7 +56,6 @@ export default function App() {
       return;
     }
     console.log(query);
-   
     fetchImgOnQuery();
   }, [query]);
   // componentDidUpdate(prevProps, prevState) {
