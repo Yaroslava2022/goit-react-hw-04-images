@@ -52,8 +52,10 @@ export default function App() {
     if (query === "") {
       return;
     }
-      fetchImgOnQuery();
-  });
+  fetchImgOnQuery()
+   // eslint-disable-next-line
+  }, [query]);
+
 
 
   function fetchImgOnQuery() {
