@@ -57,9 +57,8 @@ export default function App() {
   }, [query]);
 
 
-
   function fetchImgOnQuery() {
-    // const { query, page } = this.state;
+  
     const { fetchImages } = api;
 
     if (!query) {
