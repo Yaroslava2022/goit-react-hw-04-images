@@ -52,8 +52,8 @@ export default function App() {
     if (query === "") {
       return;
     }
-      fetchImgOnQuery();
-  });
+   fetchImgOnQuery();
+  }, [query]);
 
 
   function fetchImgOnQuery() {
