@@ -15,7 +15,7 @@ export default function App() {
   const [showModal, setShowModal] = useState(false);
   const [page, setPage] = useState(1);
   const [images, setImages] = useState([]);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   // state = {
   //   query: '',
@@ -51,13 +51,15 @@ export default function App() {
     // });
   };
 
+ 
   useEffect(() => {
     if (query === "") {
       return;
     }
-    console.log(query);
-    fetchImgOnQuery();
+   fetchImgOnQuery();
   }, [query]);
+
+
   // componentDidUpdate(prevProps, prevState) {
   //   const prevQuery = prevState.query;
   //   const newQuery = this.state.query;
@@ -72,7 +74,7 @@ export default function App() {
   // }
 
   
-  const fetchImgOnQuery = () => {
+  function fetchImgOnQuery() {
     // const { query, page } = this.state;
     const { fetchImages } = api;
 
@@ -101,7 +103,7 @@ export default function App() {
         });
         
       })
-      .catch((error) => setError(error))
+      .catch((error) => console.log(error))
       .finally(setLoading(false));
   };
 
